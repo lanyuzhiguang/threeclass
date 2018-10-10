@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>标题</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../../css/mui.min.css">
+		<link rel="stylesheet" href="../../../css/style.css">
+		<link rel="stylesheet" href="../../../css/mui.previewimage.css">
+		<link href="../../../iconfont/icon/iconfont.css" rel="stylesheet" />
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../../../css/app.css" />-->
+	</head>
+
+	<body>
+	<style>
+		.title-left{
+			font-size: 14px;
+			color: #000000;
+		}
+		.iconfont{
+			font-size: 1.7647rem;
+		}
+	   .mui-slider-indicator.mui-segmented-control{
+			background-color: white;
+		}
+		.noread-title{
+			display: flex;
+			justify-content: space-between;
+			padding: 0.588rem;
+			border: 1px solid #CCCCCC;
+		}
+		.title-right{
+			color: #169BD5;
+		}
+		.itemnums{
+			padding:0.588rem;
+		}
+		.people-img{
+			flex: 20%;
+			padding-left:0.588rem;
+		}
+		.people-img >img{
+		width:2.82rem!important;
+        height: 2.82rem!important;
+        border-radius: 50%;
+		}
+		.noread-content,{
+			padding:0.588rem 0;
+		}
+		.noread-content-item{
+			display: flex;
+			justify-content: flex-start;
+		}
+		.people-content{
+			flex: 80%;
+			/*padding-left:0.588rem ;*/
+			display: flex;
+			justify-content: space-between;
+			border-bottom: 1px solid #E4E4E4;
+			padding-right: 0.588rem;
+			align-items: center;
+			padding-bottom:0.588rem ;
+		}
+		.people-section{
+			font-size: 0.706rem;
+			color: #A3A3A3;
+		}
+		.people-status{
+			text-align: center;
+			line-height: 1.764rem;
+			height: 1.764rem;
+			width: 4.705rem;
+			border: 1px solid #9C9C9C;
+			border-radius:50%;
+			font-size: 0.705rem;
+		}
+		.screening{
+			position: fixed;
+			top: 5.352rem;
+			left:0;
+			right: 0;
+			background-color: #F2F2F2;
+			padding-bottom: 0.588rem;
+			z-index: 998;
+		}
+		.screening-one{
+			display: flex;
+			justify-content: space-around;
+		}
+		.screening-item{
+			margin: 0.588rem 0.588rem 0 0.588rem;
+			line-height: 2.7647rem;
+			text-align: center;
+			width: 4.705rem;
+			height: 2.7647rem;
+			border: 1px solid#000000;
+			background-color: #FFFFFF;
+			font-size: 0.823rem;
+		}
+	</style>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+			<h1 class="mui-title">会议签到</h1>
+		</header>
+		<div class="mui-content">
+			<div class="screening" style="display: none;">
+				<div class="screening-one">
+					<div id="all" class="screening-item singeninbtn">
+					全部
+				</div>
+				<div id="no-signin" class="screening-item singeninbtn">
+					未签到
+				</div>
+				<div id="yet-signin" class="screening-item singeninbtn">
+					已签到
+				</div>
+				</div>
+				<div class="screening-one">
+				<div id="tardy" class="screening-item singeninbtn">
+					迟到
+				</div>
+				<div id="vacate" class="screening-item singeninbtn">
+					请假
+				</div>
+				<div id="absenteeism" class="screening-item singeninbtn">
+					缺勤
+				</div>
+				</div>
+				
+			</div>
+			<div class="informall">
+			<div class="noread-title">
+				<div class="title-left">签到情况</div>
+				<div class="title-right">
+					<span class="iconfont icon-iconfont" id="filtrate"></span>
+			    </div>
+					</div>
+					<div class="noread-content">
+					<div class="itemnums">
+				       <span id="signinclassfy">
+				       	全部
+				       </span>
+				       <span id="signinclassfynum">
+				       	1111
+				       </span>
+					</div>
+					<div class="noread-content-item">
+					<div class="people-img">
+						<img src="../../../images/timg.jpg"/>
+					</div>
+					<div class="people-content">
+						<div class="peopledetails">
+						<div class="people-name">
+							老大
+						</div>
+						<div class="people-section" >
+						支部名称支部名称支部名称
+						</div>	
+						</div>
+						<div class="people-status">
+							已签到
+						</div>
+					</div>
+					</div>
+					<div class="noread-content-item">
+					<div class="people-img">
+						<img src="../../../images/timg.jpg"/>
+					</div>
+					<div class="people-content">
+						<div class="peopledetails">
+						<div class="people-name">
+							老大
+						</div>
+						<div class="people-section" style="color: #A3A3A3;">
+						支部名称支部名称支部名称
+						</div>	
+						</div>
+						<div class="people-status">
+							已签到
+						</div>
+					</div>
+					</div>
+					</div>
+					</div>
+					</div>
+					</div>
+			
+				
+	<script src="../../../js/jquery.min.js"></script>
+	<script src="../../../js/mui.min.js"></script>
+	<script src="../../../js/common.js"></script>
+	<script src="../../../js/mui.pullToRefresh.js"></script>
+	<script src="../../../js/mui.pullToRefresh.material.js"></script>
+	<script src="../../../js/mui.zoom.js"></script>
+	<script src="../../../js/mui.previewimage.js"></script>
+	<script>
+		var filtrate = document.getElementById("filtrate")
+		filtrate.addEventListener('click',function(){
+			$(".screening").css("display","block")
+		})
+		$(".singeninbtn").each(function(){
+			var classifyname = $(this).text()
+			this.addEventListener('click',function(){
+				$("#signinclassfy").text(classifyname)
+				$(".screening").css("display","none")
+				//axios
+		})
+		})
+	</script>
+
+	</body>
+</html>

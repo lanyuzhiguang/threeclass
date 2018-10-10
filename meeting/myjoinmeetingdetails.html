@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>标题</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../../css/mui.min.css">
+		<link rel="stylesheet" href="../../../css/style.css">
+		<link rel="stylesheet" href="../../../css/mui.previewimage.css">
+		<link href="../../../iconfont/logo/iconfont.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/icon/iconfont.css"/>
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../../../css/app.css" />-->
+	    <style>
+	    .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{
+		    border-bottom: 0px;
+	    }
+		.mui-slider{
+		overflow: auto;
+		}
+		.mui-control-content {
+			background-color: white;
+			height: auto;
+		}
+		.hid {
+			display: none;
+			border: 1px solid transparent!important;
+		}
+		.icon-dianzan {
+			color: #828282;
+			font-size: 0.9rem;
+		}
+		.mui-slider-indicator.mui-segmented-control{
+			background-color: white;
+		}
+		.mui-col-xs-6{
+			width: 33.33%;
+		}
+		.mui-segmented-control {
+		    color: #ADADAD;
+		}
+		.mui-segmented-control .mui-control-item{
+			width: 33.333%;
+		}
+		.item1mobile-content{
+			padding: 10px;
+		}
+		.meeting-item{
+			padding: 0.588rem;
+			border-bottom: 2px solid #DDDDDD;
+			font-size: 0.705rem;
+		}
+		.meeting-msg{
+			display: flex;
+			flex-direction: column;
+		}
+		.img-content{
+		   	display: flex;
+		   	justify-content: flex-start;
+		   	flex-wrap: wrap;
+	    }
+	   .img-content >img{
+		   	display:inline-block;
+			width:30%!important;
+	        height: 3.529rem!important;
+	        margin: 5px 4px;
+		}
+	   .iconfont{
+		    color: #D81E06;
+		}
+	   .icon-fanhui1{
+		   	font-size:1.764rem;
+		   	color: #D2D2D2;
+	    }
+	    .crewitem{
+		   	display: flex;
+		   	justify-content: space-between;
+		   	align-items: center;
+		   	padding: 0.588rem;
+		    border-bottom: 2px solid #DDDDDD;
+		   	line-height: 2;
+		   	
+	    }
+	    .apply-leave{
+		   	width: 28%;
+		   	border: 1px solid#797979;
+		   	background-color: #FFFFFF;
+		   	border-radius:4px ;
+		   	color: #000000;
+		   	text-align: center;
+	    }
+		.apply-leave:disabled{ 
+			color: #CCCCCC;      
+			opacity:1;
+			-webkit-text-fill-color:#CCCCCC; 
+		    -webkit-opacity:1;
+		    text-align: center;   
+        }
+       
+	    .myjoin-singnin{
+		    width: 70%;
+		   	border: 1px solid#169BD5;
+		   	background-color: #169BD5;
+		   	border-radius:4px ;
+		   	color: #FFFFFF;
+	    }
+	    .alonebtn{
+        	width: 90%;
+		   	border: 1px solid#169BD5;
+		   	background-color: #169BD5;
+		   	border-radius:4px ;
+		   	color: #FFFFFF;
+        }
+        .myjoin-singnin:disabled{ 
+			color: #CCCCCC;      
+			opacity:1;
+			-webkit-text-fill-color:#CCCCCC; 
+			-webkit-opacity:1;   
+        } 
+		.tixing{
+			margin-top: 1.176rem;
+			font-size: 0.647rem;
+			color: #AEAEAE;	
+		}
+		.fujian, .fujian-style{
+			color: #CCCCCC;
+		}
+		.btns{
+			margin-top: 1.1765rem;
+			text-align: center;
+		}
+		.record-item{
+			min-height: 6rem;
+			border-bottom: 1px solid#CCCCCC;
+		}
+		.recordimg-top, .record-content{
+			padding: 0.588rem;
+		}
+		.record-content{
+			margin:auto 0.588rem;
+			border: 1px dotted #CCCCCC;
+			text-align: center;
+			color: #000000;
+		}
+		.record-title{
+			font-size: 14px;
+			color: #000000;
+		}
+		.recordimg-num{
+			font-size: 12px;
+			color: #CCCCCC;
+		}
+		.record-pc{
+			padding: 0.588rem;
+			
+		}
+		/*.img-list{
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.img-Item{
+			width:30%;
+			margin:5px;
+			box-sizing: border-box;
+		}*/
+		.img-list{
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding:0 0.588rem 0.588rem 0.588rem;
+			
+		}
+		.img-Item{
+			width:30%;
+			margin-top:5px;
+			/*box-sizing: border-box;*/*/
+		}
+		.meeting-details-bot{
+			padding:0.588rem;
+		}
+		.fujian-content{
+			padding-left: 0.588rem;
+		}
+		.no-materialsg{
+			padding-left: 1.4118rem;
+		}
+		
+        </style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">会议详情</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider  mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
+					<a class="mui-control-item mui-active myselect" href="#item1mobile">会议详情</a>
+					<a class="mui-control-item" href="#item2mobile">参会人员</a>
+					<a class="mui-control-item" href="#item3mobile">会议记录</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6" style="transform: translate3d(106px, 0px, 0px) translateZ(0px);"></div>
+					<div class="mui-slider-group">
+						<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						    <div class="conference-details" >
+						   	    <div id="conferencedetails">
+						   	        <div class="meeting-title meeting-item" id="conferenceTitle" >
+		                                                                                       喜迎十九大  喜迎十九大  喜迎十九大  喜迎十九大...
+		                                                                                       喜迎十九大  喜迎十九大  喜迎十九大  喜迎十九大...
+						            </div>
+							        <div class="meeting-msg meeting-item"  >
+								    <div id="meethingdepartment"  class="meeting-msg-details">
+									    <span class="iconfont icon-qunzhong"></span>
+									    <span id="">XXXXXX党支部</span> 
+									</div>
+					       		    <div class="meeting-msg-details">
+									    <span class="iconfont icon-caidan1"></span>
+									    <span id="meethingname">支部党员大会</span>
+									</div>
+									<div class="meeting-msg-details">
+								        <span class="iconfont icon-didian"></span>
+								        <span id="meetingsite">第一会议室</span>
+									</div>
+								    <div class="meeting-msg-details">
+										<span class="iconfont icon-zhongbiao"></span>
+										<span id="meetingstart">2018-10-19 10:00:00</span>
+									</div>
+									<div class="meeting-msg-details">
+										<span class="iconfont icon-zhongbiao"></span>
+										<span id="meetingend">2018-10-19 11:00:00</span>
+									</div>
+									<div id="" class="meeting-msg-details">
+										<span class="iconfont icon-dian"></span>
+										<span id="meetingstatus">会议未开始</span>
+									</div>	
+							    </div>
+							        <div class="meeting-content meeting-item"  >
+						                <div class="content-title">会议内容</div>
+							            <div class="content-wrp">
+									      	会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议
+									      	内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容
+									      	会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议内容会议
+									      	内容会议内容会议内容会议内容会议内容
+							            </div>
+							        </div>
+							        <div class="meeting-img meeting-item">
+										<div class="img-title">图片</div>
+										<div class="img-content">
+											<img src="../../../images/timg.jpg"/>
+											<img src="../../../images/timg.jpg"/>
+											<img src="../../../images/timg.jpg"/>
+											<img src="../../../images/timg.jpg"/>
+											<div class="no-img" style="display: none;">暂无图片</div>
+										</div>
+								    </div>
+							        <div class="meeting-materials meeting-details-bot">
+										<div class="materials-title">会议材料</div>
+										<div class="materials-content">
+											<div class="fujian">
+												<span class="iconfont icon-fujian fujian-style"></span>
+												<span >材料1</span>
+											</div>
+											<div class="fujian">
+												<span class="iconfont icon-fujian fujian-style"></span>
+												<span >材料2</span>
+											</div>
+											<div class="no-materialsg" style="display: none;">暂无会议材料</div>
+								        </div>
+						                <div class="btns">
+									      	<button class="apply-leave" id="applyleave">请假申请</button>
+											<button class="myjoin-singnin" id="myjoinsingnin">会议签到</button>
+											<button class="alonebtn" style="display: none;">会议签到</button>
+									    </div>
+							        </div>
+							    </div>	
+						    </div>
+						</div>			   
+		          		<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="crew">
+							<div class="inform crewitem">
+								<div class="crew-left">
+								<div class="item-title">会议通知</div>
+								<div class="item-content">已阅132人   未阅129人</div>
+								</div>
+								<div class="crew-right">
+								<span class="iconfont icon-fanhui1" id="informbtn"></span>
+								</div>
+							</div>
+							<div class="inform crewitem">
+								<div class="crew-left">
+								<div class="item-title">会议签到</div>
+								<div class="item-content">应到261人   实到200人  请假10人  缺勤51人</div>
+								</div>
+								<div class="crew-right">
+								<span class="iconfont icon-fanhui1" id="registrationbtn"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="record">
+							<div class="record-item" >
+								<div class="recordimg-top">
+								<span class="record-title">现场图片</span>
+								</div>
+								<div class="no-materialsg" >
+									暂无
+								</div>
+								<div class="img-list img-wrap" style="display: none;">
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+								</div>
+							</div>
+							<div class="record-item" >
+								<div class="recordimg-top">
+								<span class="record-title">会议记录</span>
+								</div>
+								<div class="no-materialsg" >
+									暂无
+								</div>
+								<div class="recor-wrap" style="display: none;">
+									<div class="wrap-font">
+										会议记录文字描述会议记录文字描述会议记录文字描述会议记
+										录文字描述会议记录文字描述会议记录文字描述会议记录文
+										字描述会议记录文字描述会议记录文字描述会议记录文字描述
+										会议记录文字描述会议记录文字描述会议记录文字描述会
+										议记录文字描述会议记录文字描述会议记录文字描述会议记录文字描述
+									</div>
+									<div class="img-list img-wrap">
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+									<div class="img-Item ">
+										<img src="../../../images/timg.jpg"/>
+									</div>
+								</div>
+							    </div>
+							</div>
+							</div>
+						    <div class="fujianlast">
+						    	<div class="record-pc">会议附件</div>
+									<div class="fujian" style="display: none;">
+										<div class="fujian-content">
+											<span class="iconfont icon-fujian fujian-style"></span>
+											<span >材料1</span>
+										</div>
+										<div class="fujian-item">
+											<span class="iconfont icon-fujian fujian-style"></span>
+											<span >材料2</span>
+										</div>
+									</div>
+									<div class="no-materialsg" >暂无</div>
+							    </div>
+							    
+						   </div>
+					</div>
+			</div>
+		</div>
+	<script src="../../../js/jquery.min.js"></script>
+	<script src="../../../js/mui.min.js"></script>
+	<script src="../../../js/common.js"></script>
+	<script src="../../../js/mui.pullToRefresh.js"></script>
+	<script src="../../../js/mui.pullToRefresh.material.js"></script>
+	<script src="../../../js/mui.zoom.js"></script>
+	<script src="../../../js/mui.previewimage.js"></script>
+	<script>
+		mui.init();
+		//会议详情
+		var applyleave = document.getElementById("applyleave")
+		var myjoinsingnin = document.getElementById("myjoinsingnin")
+		  applyleave.addEventListener('tap',function(){
+			osg.open("informdetails.html", "informdetails.html");
+		})
+		myjoinsingnin.addEventListener('tap',function(){
+			osg.open("erweimatool.html", "erweimatool.html");
+		})
+	     //会议通知
+	     var informbtn = document.getElementById("informbtn")
+	     var registrationbtn = document.getElementById("registrationbtn")
+	     informbtn.addEventListener('click',function(){
+			osg.open("myjoininformdetails.html", "myjoininformdetails.html");
+		})
+        registrationbtn.addEventListener('click',function(){
+		osg.open("myjoinregistration.html", "myjoinregistration.html");
+	    })
+        //会议记录
+	</script>
+
+	</body>
+</html>

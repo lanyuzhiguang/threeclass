@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<title>请假申请</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/style.css"/>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "苹方";
+				font-size: 14px;
+				color: #333;
+			}
+			.content {
+				width: 100%;
+				margin-top: 0.588rem;
+				padding-right:0.588rem;
+			}
+			.content>section>.title{
+				padding-bottom: 6px;
+				border-bottom: 1px solid #EDEDED;
+			}
+			.content_con{
+				padding: 5px;
+			}
+			.content_con>div{
+				padding: 4px 0;
+			}
+			section{
+				padding-left: 8%;
+				background: url(../images/error.png) 10px 0 no-repeat;
+			}
+			section.actives{
+				background: url(../images/blue.png) 10px 0 no-repeat,url(../images/erroe-line.png) 10px 12px repeat-y;
+			}
+			.input-item{
+				width:20rem;
+				height: 36px;
+				border: 1px solid#CCCCCC;
+				border-radius: 4px;
+				padding: 0 0.588rem;
+				font-size: 0.7059rem;
+			}
+			textarea{
+				min-height: 8.8235rem;
+				font-size: 0.7059rem;
+			}
+			.btns{
+				text-align: center;
+			}
+			.btn{
+				color: #FFFFFF;
+				background-color: #169BD5;
+				width: 8.2353rem;
+				height: 2.3529rem;
+				border: 1px solid#169BD5;
+			}
+			.mask-content {
+				width: 11.765rem;
+				height: 6.353rem;
+				background-color: #FFFFFF;
+				margin: 0 auto;
+				text-align: center;
+				line-height:  6.353rem;
+				margin-top: 10rem;
+			}
+			.mui-backdrop {
+			    position: fixed;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    z-index: 998;
+			    background-color: rgba(0,0,0,.7);
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">请假审核</h1>
+		</header>
+		<div style="height: 2.8rem;"></div>
+		<!--<form action="" method="post">-->
+			<article>
+				<div class="content">
+					<section class="actives">
+						<div class="title">
+							提交请假信息
+						</div>
+						<div class="content_con">
+							<div>
+								<div>标题：</div>
+								<div>
+									<input type="" name="" id="" value=""  placeholder="请输入" class="input-item"/>
+								</div>
+							</div>
+							<div>
+								<div>姓名：</div>
+								<div>
+									<input type="" name="" id="" value="" placeholder="请输入" class="input-item"/>
+								</div>
+							</div>
+							<div>
+								<div>所属支部：</div>
+								<div>
+									<input type="" name="" id="" value=""  placeholder="请输入"  class="input-item"/>
+								</div>
+							</div>
+							<div>
+								<div>请假事由：</span>
+								<textarea name="" rows="" cols=""  placeholder="请输入"></textarea>
+							</div>
+							<!--</form>-->
+							<div class="btns">
+								<button class="btn" id="submitleave">提交</button>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="title-bot " >
+							审核请假信息
+						</div>
+					</section>
+				</div>
+				<div class="mui-backdrop" style="display: none;" id="mask">
+					<div class="mask-content " >
+						请假申请已提交
+					</div>
+				</div>
+		    </article>
+		
+		
+	</body>
+</html>
+<script src=../../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src=../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src=../../../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script >
+	mui.init()
+	var submitleave = document.getElementById("submitleave")
+	submitleave.addEventListener("click",function(){
+		console.log("aaaa")
+		$("#mask").css("display","block")
+	})
+	
+</script>

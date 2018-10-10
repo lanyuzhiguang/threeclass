@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/style.css">
+		<link href="../../../js/wangEditor/css/wangEditor.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-content{
+				margin-top: 0.588rem;
+				padding: 0.588rem;	
+			}
+			.recordimg-top{
+				font-size: 14px;
+				color: #000000;
+		    }
+			.save{
+				color: #CCCCCC;
+			}
+			#editor-trigger{
+				padding-top: 0.588rem;
+				width: 100%;            
+				min-height:14.706rem;
+				/*border: 1px solid#CCCCCC;*/
+			}
+			#imgList {
+				padding: 0;
+				padding-left: 1.2rem!important;
+			}
+			.imageList>div {
+				width: 5.74rem!important;
+				height: 5.74rem!important;
+				overflow: hidden;
+				padding-top: 0!important;
+				margin-left: 0;
+			}
+			.imgItem {
+				padding-left: 0!important;
+				padding-right: 0!important;
+				margin-right: 1.2rem;
+				margin-bottom: 0.588rem;
+				position: relative;
+			}
+			.imageList div>a>img {
+				width: 5.74rem!important;
+				height: 5.74rem;
+				margin-bottom: 0.588rem;
+				margin-top: 0!important;
+			}
+			.imageList div>img {
+				width: 5.74rem!important;
+				height: auto;
+				margin-bottom: 0.588rem;
+				margin-top: 0!important;
+			}
+			.del img {
+				position: absolute;
+				width: 1rem!important;
+				right: 0;
+				top: 0;
+			}
+			textarea{
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">会议记录</h1>
+		     <span class="save mui-pull-right">保存提交</span>
+		</header>
+		<div class="mui-content">
+			<div class="recordimg-top">会议记录</div>
+		   <div id="editor-trigger">
+		        <textarea name="" rows="" cols=""  placeholder="请输入...."></textarea>
+		    </div> 
+		    <div class="recordimg-top">图片</div>
+		    <div class="imageList" id="imgList">
+				<div class="imgItem">
+					<img id="addPicture" src="../../../images/addPic.png">
+		        </div>
+		    </div> 
+		</div>
+		<script src="../../../js/jquery.min.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/wangEditor/js/wangEditor.js"></script>
+		<script src="../../../js/mui.picker.min.js"></script>
+		<script src="../../../js/common.js"></script>
+		<script src="../../../js/mui.zoom.js"></script>
+		<script type="text/javascript">
+			var editor = new wangEditor('editor-trigger');
+	         editor.create();
+		</script>
+		<script>
+			mui.init();
+		    var nativeWebview, imm, InputMethodManager;
+	        var initNativeObjects = function() {
+			    if (mui.os.android) {
+			        var main = plus.android.runtimeMainActivity();
+			        var Context = plus.android.importClass("android.content.Context");
+			        InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
+			        imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
+			    } 
+			    else {
+			        nativeWebview = plus.webview.currentWebview().nativeInstanceObject();
+			    }
+        };
+			var showSoftInput = function() {
+			    if (mui.os.android) {
+			        imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+			    } 
+			    else {
+			        nativeWebview.plusCallMethod({
+			            "setKeyboardDisplayRequiresUserAction": false
+			        });
+			    }
+			    setTimeout(function() {
+			       //此处可写具体逻辑设置获取焦点的input
+			       $("#content").focus();
+			    }, 300);
+			};
+			mui.plusReady(function() {
+			    initNativeObjects();
+			    showSoftInput();
+			});
+			mui.plusReady(function() {
+				var addPicture = document.getElementById("addPicture");
+				addPicture.addEventListener('tap', function(e) {
+					if(mui.os.plus) {　　
+						var a = [{　　
+							title: "拍照" //这些都是可以点击的选项的内容
+						}, 
+						{
+							title: "从手机相册选择"
+						}];
+						plus.nativeUI.actionSheet({　　
+							cancel: "取消", 
+							buttons: a
+						}, function(event) { /*actionSheet 按钮点击事件*/ 　　
+							var index = event.index;
+							switch(index) {
+								case 1:
+									if($("#imgList").children().length > 1 && $("#imgList").find("div").eq(1).children().is('video')) { //有图片
+									} 
+									else {
+										// 拍照
+										osg.uploadPictureFromCamera(10, function(url) {
+											$("#imgList").append('<div class="imgItem" ><span class="del"><img src="../../../images/cha.png"></span><img src="' + url + '"></div>');
+										});
+									}
+									break;
+								case 2:
+									if($("#imgList").children().length > 1 && $("#imgList").find("div").eq(1).children().is('video')) { //有图片
+									} 
+									else {
+										// 选择图片
+										osg.pickFileUpload(10, function(url) {
+											$("#imgList").append('<div class="imgItem" ><span class="del"><img src="../../../images/cha.png"></span><img src="' + url + '"></div>');
+										});
+									}
+									break;
+							}　　　　　　
+						})
+					}
+				});
+				$("#imgList").on("tap", ".del", function() {
+					$(this).parent().remove();
+				})
+				var pubed = false; 
+					// 文件id
+					var fileIds = new Array();
+					var imageCompleted = false;
+//					var videoCompleted = false;
+					// 要上传的图片
+					var images = new Array();
+					$('#imgList>.imgItem>img').each(function(index, element) {
+						if(index == 0) {
+							return;
+						}
+						var that = $(element);
+						images.push(that.attr("src"));
+					});
+					// 上传图片
+					osg.uploadFiles(images, "true", "square", function(imageIds) {
+						fileIds.push.apply(fileIds, imageIds);
+						imageCompleted = true;
+					});		
+					if(pubed)
+						return;
+						//axios
+				});
+				mui('.mui-scroll-wrapper').scroll({
+					indicators: false
+				});
+		</script>
+		
+	</body>
+
+</html>

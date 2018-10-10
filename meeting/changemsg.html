@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/style.css" rel="stylesheet" />
+		<style type="text/css">
+			body {
+				background-color: #F5F5F9;
+			}
+			
+			.mui-table-view-cell {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-content {
+				background-color: #F5F5F9;
+			}
+			
+			.change-content {
+				background-color: #FFFFFF;
+			}
+			
+			.change-title {
+				background-color: #F5F5F9;
+				padding: 0.588rem;
+				color: #000000;
+				border: 1px solid#E4E4E4;
+			}
+			
+			#btn {
+				color: #FFFFFF;
+				width: 140px;
+				height: 40px;
+				margin-top: 40px;
+				background-color: #169BD5;
+				border: 1px solid#169BD5;
+			}
+			
+			.queding {
+				text-align: center;
+			}
+			
+			/*input[type=radio] {
+				display: inline-block !important;
+				background-color: white !important;
+				-webkit-appearance: initial !important;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">变更会议信息</h1>
+		</header>
+		<div class="mui-content">
+			<div class="change-content">
+				<div class="change-title">
+					请选择变更类型
+				</div>
+				<div id="changemsg" style="margin-top: 15px;">
+		   			<div class="mui-input-row mui-radio mui-left mui-table-view">
+						<label >变更会议信息</label>
+						<input name="radio1" type="radio" id="rediocheckone"/>
+					</div>
+			  		<div class="mui-input-row mui-radio rediocheck mui-left mui-table-view ">
+						<label >取消会议</label>
+						<input name="radio1" type="radio" id="rediochecktwo"/>
+					</div>
+				</div>	
+			</div>
+			<div class="queding ">
+				<button id="btn">确定</button>	
+			</div>
+			
+		</div> 
+		<script src="../../../js/jquery.min.js "></script>
+		<script src="../../../js/mui.min.js "></script>
+		<script src="../../../js/common.js "></script>
+		<script src="../../../js/mui.zoom.js "></script>
+		<script type="text/javascript ">
+		   var rediocheckone =document.getElementById("rediocheckone")
+		   var rediochecktwo =document.getElementById("rediochecktwo")
+		   var btn =document.getElementById("btn")
+          	 btn.addEventListener('tap',function(){
+          	 	var change= $("#rediocheckone").is(":checked");
+//        	 	var cancel= $("#rediochecktwo").is(":checked");
+		   			var btns = $("input[type=radio]").is(":checked")
+//		   			console.log($(this))
+		          	 	if(btns){
+		          	 		if(change){
+		          	 		osg.open("changemsgdetails.html ", "changemsgdetails.html ")	
+		          	 		}
+		          	 		else{
+		          	 		 mui.toast('取消会议',{ duration:'2000ms', type:'div' }) 	
+		          	 		}
+		          	 	}
+          	 	      else {
+          	 	      	mui.toast('请选择',{ duration:'2000ms', type:'div' }) 
+          	 	      }
+//		   			  {
+//		   				console.log("ddddd")
+//		   				
+//		   			}
+          	 	
+	                });
+	      
+			
+	
+		
+		</script>
+	</body>
+
+</html>

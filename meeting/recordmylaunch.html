@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>标题</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../../css/mui.min.css">
+		<link rel="stylesheet" href="../../../css/style.css">
+		<link rel="stylesheet" href="../../../css/mui.previewimage.css">
+		<link href="../../../iconfont/logo/iconfont.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/icon/iconfont.css"/>
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../../../css/app.css" />-->
+	    <style>
+	    	.mui-input-row.mui-search .mui-icon-clear{
+	    		top: 0.294rem;
+	    	}
+	    	.mui-search:before{
+	    		margin-top: -0.706rem;
+	    	}
+			.mui-control-content {
+				background-color: white;
+				height: auto;
+			}
+			.hid {
+				display: none;
+				border: 1px solid transparent!important;
+			}
+			
+			.icon-dianzan {
+				color: #828282;
+				font-size: 0.9rem;
+			}
+			.mui-slider-indicator.mui-segmented-control{
+				background-color: white;
+			}
+			.mui-col-xs-6{
+				width: 20%;
+			}
+			.mui-segmented-control {
+			    position: relative;
+			    display: flex;
+			    justify-content: flex-start;
+			    align-items: center;
+			    overflow: hidden;
+			    width: 100%;
+			    border: 1px solid #007aff;
+			    border-radius: 3px;
+			    background-color: transparent;
+			    -webkit-touch-callout: none;
+			    color: #ADADAD;
+			}
+			.mui-segmented-control .mui-control-item{
+				width: 20%;
+			}
+			.item1mobile-content{
+				padding: 10px;
+			}
+			.item1mobile-leave-header{
+				padding:10px 0;
+				color: #000000;
+			}
+			.item1mobile-leave-content{
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+			}
+		    .peopleimg >img{
+			width:2.82rem!important;
+	       height: 2.82rem!important;
+	       border-radius: 50%;
+			}
+			.item1-title{
+				padding:0.1176rem 0.588rem;
+				font-size: 0.941rem;
+				border-top: 1px solid #DDDDDD;
+			}
+			.leaveitem{
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				border-top: 1px solid #DDDDDD;
+				padding: 0.47rem 0.588rem;
+			}
+			.peopleimg{
+				flex: 15%;
+			}
+			.peoplemsg{
+				flex: 80%;
+			}
+			.peoplemsg-top, .peoplemsg-bot{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.username{
+				font-size: 0.882rem;
+				color: #000000;
+			}
+			.peopledepartment{
+				font-size: 0.706rem;
+				color: #ADADAD;
+			}
+			.consequence{
+				font-size: 0.588rem;
+				background-color: #FEF0EF;
+				border: 1px solid #FFA39E;
+				color: #F5222D;
+				border-radius: 0.352rem;
+				padding: 0 0.588rem;
+			}
+			.recordmsg{
+				display: flex;
+				flex-direction: column;
+				padding: 0.588rem;
+			}
+			.recorditem, .signinitem{
+				border-top: 1px solid #DDDDDD;	
+			}
+			#item1, #item2, #item3{
+				border-bottom: 2px solid #CCCCCC;
+			}
+			.iconfont{
+				color: #D81E06;
+			}
+			.recordtitle{
+				padding-left: 0.588rem;
+				padding-top: 0.588rem;
+			}
+			input[type=search]{
+				background-color: #FFFFFF;
+				margin-bottom: 0;
+				height:1.647rem ;
+			}
+			.mui-search .mui-placeholder{
+				line-height: 1.647rem;
+				height:1.647rem ;
+			}
+			.sponorsearch{
+				background-color: #EFEFF4;
+				display: flex;
+				justify-content: space-between;
+				padding: 0.588rem;
+			}
+			.search-left{
+				width: 86%;
+			}
+			.saixuan{
+				font-size: 1.7647rem;
+				color: #1296DB;
+				flex: 20%;
+			}
+			.condition{
+				font-size: 0.588rem;
+				color: #FFFFFF;
+				border-radius: 0.352rem;
+				padding: 0 0.588rem;
+				text-align: center;
+				height: 1.412rem;
+			    width: 58px;
+			   /* width: 3.4118rem;*/
+			    line-height:1.412rem;
+			}
+			.condition-blue{
+				background-color: #40A9FF;
+				border: 1px solid #40A9FF;
+			}
+			.condition-green{
+				background-color: #73D13D;
+				border: 1px solid #73D13D;
+			}
+			.condition-red{
+				background-color: #F5222D;
+				border: 1px solid #F5222D;
+			}
+			.myleave-orange{
+				border: 1px solid #FA541C;
+				background-color: #FFF2E8;
+				color: #FA541C;
+				margin-bottom: 5px;
+			}
+			.myleave-purple{
+				border: 1px solid #722ED1;
+				background-color: #F9F0FF;
+				color: #722ED1;
+				margin-bottom: 5px;
+			}
+			.myleave-gray{
+				border: 1px solid #D9D9D9;
+				background-color: #F5F5F5;
+				color: #565656;
+				margin-bottom: 5px;
+			}
+			.myleave-green{
+				border: 1px solid #52C41A;
+				background-color: #F6FFED;
+				color: #52C41A;
+				margin-bottom: 5px;
+			}
+			.myleave-red{
+				border: 1px solid #F5222D;
+				background-color: #FEF0EF;
+				color: #F5222D;
+				margin-bottom: 5px;
+				/*padding: 0 15px;*/
+			}
+			.sponoritem{
+				border-top: 0;	
+				border-bottom: 1px solid #DDDDDD;	
+			}
+			.item2mobile{
+				position: relative;
+			}
+			/*筛选*/
+			.screen {
+				overflow: hidden;
+				padding: 0.59rem;
+				position: absolute;
+				left:0p;
+				right:0;
+				z-index: 99999998;
+				background: rgb(239,239,244,0.9);
+				
+			}
+
+			.screening-item {
+				text-align: center;
+				width: 80px;
+				line-height:2.353rem;
+				float: left;
+				height: 2.353rem;
+				margin-left: 0.59rem;
+				margin-right: 0.59rem;
+				margin-top: 0.59rem;
+				background-color: #FFFFFF;
+				border: 1px solid#000000;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+	    <header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">三会一课</h1>
+		    <div class="mui-pull-right">发起</div>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider  mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
+					<a class="mui-control-item mui-active myselect" href="#item1mobile">
+						我的发起
+					</a>
+					<a class="mui-control-item" href="#item2mobile">
+						我的参与
+					</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6" style="transform: translate3d(106px, 0px, 0px) translateZ(0px);"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+					 <!--筛选-->
+					<div id="screening" style="display: none;" class="screen">
+						<div  class="screening-item classify">未开始</div>
+						<div  class="screening-item classify">进行中</div>
+						<div  class="screening-item classify">已结束</div>
+						<div  class="screening-item classify">已取消</div>
+					</div>
+						<div class="sponsor">
+							<div class="sponorsearch">
+							    <div class="mui-input-row mui-search search-bottom search-left">
+                                <input type="search" class="mui-input-clear" placeholder="搜索">
+                                </div>	
+								<div class="title-right">
+						        <span class="iconfont icon-iconfont saixuan" id="filtrate"></span>
+				                </div>
+							</div>
+							<div class="record-list">
+								<div class="recorditem sponoritem" >
+									<div class="recordtitle">
+										标题标题标题标题标题标题标题标题标题标题标..
+									</div>
+									<div class="recordmsg" >
+										<div class="peopledepartment">
+											<span class="iconfont icon-caidan1"></span>
+									    	<span id="ConferenceTitle">支部党员大会</span>
+									    </div>
+									    <div class="peopledepartment">
+									        <span class="iconfont icon-didian"></span>
+									    	<span id="ConferenceSite">第一会议室</span>
+									    </div>
+										<div class="peoplemsg-bot" >
+											<div id="recordtime" class="col-5 font-28 font-blue peopledepartment">
+												<span class="iconfont icon-zhongbiao"></span>
+												<span id="ConferenceTime">2018-10-19 10:00:00</span>
+											</div>
+											<div class="condition condition-blue" style="display: none;">未开始</div>
+											<div class="condition condition-blue" style="display: none;">进行中</div>
+											<div class="condition condition-green" style="display: none;">已结束</div>
+											<div class="condition condition-red">已取消</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>  
+				    </div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+					<div id="myjoin">
+						<!--筛选-->
+					<div id="joinscreening" style="display: none;" class="screen">
+						<div  class="screening-item joinclassify">未开始</div>
+						<div  class="screening-item joinclassify">进行中</div>
+						<div  class="screening-item joinclassify">已结束</div>
+						<div  class="screening-item joinclassify">已取消</div>
+						<div  class="screening-item joinclassify">已签到</div>
+						<div  class="screening-item joinclassify">未签到</div>
+						<div  class="screening-item joinclassify">缺勤</div>
+						<div  class="screening-item joinclassify">请假</div>
+						<div  class="screening-item joinclassify">迟到</div>
+					</div>
+						<div class="sponsor">
+							<div class="sponorsearch">
+							    <div class="mui-input-row mui-search search-bottom search-left">
+                                <input type="search" class="mui-input-clear" placeholder="搜索">
+                                </div>	
+								<div class="title-right">
+						        <span class="iconfont icon-iconfont saixuan" id="joinfiltrate"></span>
+				                </div>
+							</div>
+							<div class="record-list">
+								<div class="recorditem sponoritem" >
+									<div class="recordtitle">
+										标题标题标题标题标题标题标题标题标题标题标..
+									</div>
+									<div class="recordmsg" >
+										<div class="peopledepartment">
+											<span class="iconfont icon-caidan1"></span>
+									    	<span id="joinConferenceTitle">支部党员大会</span>
+									    </div>
+									    <div class="peoplemsg-bot">
+									    	<div class="peopledepartment">
+											        <span class="iconfont icon-didian"></span>
+											    	<span id="joinConferenceSite">第一会议室</span>
+									        </div>
+									        <div class="join-status myleave-status">
+									        	<div class="condition myleave-orange" style="display: none;">已签到</div>
+													<div class="condition myleave-purple" style="display: none;">未签到</div>
+													<div class="condition myleave-gray" style="display: none;">请假</div>
+													<div class="condition myleave-green"style="display: none;">迟到</div>
+													<div class="condition myleave-red">缺勤</div>	
+												
+									        </div>
+									    </div>
+									  
+										<div class="peoplemsg-bot" >
+											<div id="joinrecordtime" class="col-5 font-28 font-blue peopledepartment">
+												<span class="iconfont icon-zhongbiao"></span>
+												<span id="joinConferenceTime">2018-10-19 10:00:00</span>
+											</div>
+												<div class="myjoinmeeting-status">
+													<div class="condition condition-blue" style="display: none;">未开始</div>
+													<div class="condition condition-blue" style="display: none;">进行中</div>
+													<div class="condition condition-green" style="display: none;">已结束</div>
+													<div class="condition condition-red">已取消</div>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+	<script src="../../../js/jquery.min.js"></script>
+	<script src="../../../js/mui.min.js"></script>
+	<script src="../../../js/mui.pullToRefresh.js"></script>
+	<script src="../../../js/mui.pullToRefresh.material.js"></script>
+	<script src="../../../js/mui.zoom.js"></script>
+	<script src="../../../js/mui.previewimage.js"></script>
+	<script src="../../../js/common.js"></script>
+	<script>
+		//筛选
+		mui.init();
+		var filtrate = document.getElementById("filtrate")
+		var screening = document.getElementById("screening")
+		 document.getElementById("filtrate").addEventListener('click',function(){
+			$(screening).css("display","block")
+		})
+		 	$(".classify").each(function(i,key){
+				key.addEventListener('tap',function(){
+					$(screening).css("display","none")
+					//根据相应Id获取相应内容
+				})
+			})
+		 //我的发起
+			$(".sponoritem").each(function(index,item){
+				console.log("aaaaa")
+				item.addEventListener('tap',function(){
+					console.log("aaaaa")
+					osg.open("meetingdetails.html", "meetingdetails.html");
+				})
+			})
+			//我的参与
+		var joinfiltrate = document.getElementById("joinfiltrate")
+		var joinscreening = document.getElementById("joinscreening")
+		 joinfiltrate.addEventListener('click',function(){
+			$(joinscreening).css("display","block")
+		})
+		 	$(".joinclassify").each(function(i,key){
+				key.addEventListener('tap',function(){
+					$(joinscreening).css("display","none")
+					//根据相应Id获取相应内容
+				})
+			})
+	</script>
+
+	</body>
+</html>

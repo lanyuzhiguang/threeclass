@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>党组织关系转移</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../iconfont/dangpay/iconfont.css" />
+		<style>
+			.mui-fullscreen {
+				background: #ededee;
+			}
+			
+			.payIcon {
+				font-size: 1.353rem;
+				color: #8a8a8a;
+				font-weight: bold;
+			}
+			
+			.manage_item span {
+				font-size: 0.94rem;
+				font-family: "苹方";
+				color: #333333;
+			}
+			/*弹框样式  确认取消*/
+			
+			.mui-popup-text {
+				font-family: "苹方"!important;
+				font-size: 0.824rem!important;
+				color: #323232!important;
+				text-align: left;
+				margin: 0 0 0!important;
+				margin-bottom: 1.353rem!important;
+			}
+			
+			.mui-popup-button {
+				color: #323232;
+				font-size: 0.824rem;
+				font-family: "苹方"!important;
+				line-height: normal;
+				height: auto;
+				border-radius: 0;
+				padding: 0 0;
+				width: 5.2rem;
+				height: 1.765rem;
+				line-height: 1.765rem;
+				border-radius: 8px!important;
+				margin-bottom: 1.177rem;
+				border: 1px solid #c8c8c8;
+			}
+			
+			.mui-popup {
+				background: #ffffff;
+				opacity: 0.94!important;
+				border-radius: 8px;
+			}
+			
+			.mui-popup-inner {
+				background: transparent;
+				padding: 0;
+				padding-left: 1.294rem;
+				padding-top: 1.44rem;
+			}
+			
+			.mui-popup-inner:after {
+				background-color: transparent;
+			}
+			
+			.mui-popup-buttons {
+				height: auto;
+			}
+			
+			.mui-popup-button-bold {
+				background: #c5332a;
+				margin-left: 2.7rem;
+				color: #ffffff;
+				border-color: transparent;
+			}
+			
+			.mui-popup-backdrop {
+				background: #000000;
+			}
+			
+			.mui-popup-backdrop.mui-active {
+				opacity: 0.3;
+			}
+			
+			.mui-popup-button:after {
+				background-color: transparent;
+			}
+			/*确定按钮弹框*/
+			
+			.mui-popup-inner {
+				padding-left: 0;
+				width: 80%;
+				margin: auto;
+			}
+			
+			.mui-popup {
+				width: 15.3rem;
+				height: 7.94rem;
+			}
+			
+			.mui-popup-button {
+				margin-left: 0;
+			}
+			
+			.mui-popup-button-bold {
+				background: #00a0e7;
+				width: 7.5588rem;
+				color: #ffffff;
+				border-color: transparent;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav news_header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">组织生活</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="min_bar1"></div>
+				<div class="manage_item font-32" id="appi">
+					<div id="threeclass">
+						<div class="col-7">
+							<span>三会一课</span>
+						</div>
+						<div class="col-3 manage_next_pro">
+							<i></i>
+						</div>
+					</div>
+				</div>
+				<div class="min_bar1"></div>
+				<div class="manage_item font-32" id="appk">
+					<div id="partyExperice">
+						<div class="col-7">
+							<span>组织生活会</span>
+						</div>
+						<div class="col-3 manage_next_pro">
+							<i></i>
+						</div>
+					</div>
+				</div>
+				<div class="min_bar1"></div>
+				<div class="manage_item font-32" id="stats">
+					<div id="joinApplyer">
+						<div class="col-7">
+							<span>民主生活会</span>
+						</div>
+						<div class="col-3 manage_next_pro">
+							<i></i>
+						</div>
+					</div>
+				</div>
+				<div class="min_bar1"></div>
+				<div class="manage_item font-32" id="stats">
+					<div id="">
+						<div class="col-7">
+							<span>党建活动</span>
+						</div>
+						<div class="col-3 manage_next_pro">
+							<i></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery.min.js"></script>
+	<script src="../../js/mui.min.js "></script>
+	<script src="../../js/mui.view.js "></script>
+	<!--<script src="../js/feedback-page.js"></script>-->
+	<script src="../../js/common.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		function refresh(){
+				window.location.reload();
+			}
+		mui.plusReady(function() {
+			
+
+			var threeclass = document.getElementById('threeclass');
+			threeclass.addEventListener('tap', function(event) {
+				osg.open("meeting/myagenda.html", "myagenda.html");
+			});
+		});
+	</script>
+
+</html>

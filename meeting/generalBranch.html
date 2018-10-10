@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link href="../../../css/mui.min.css" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<style type="text/css">
+		.footer{
+			position: absolute;
+			bottom:0;
+			line-height: 1.5;
+		}
+		.clearfix:after{
+			display: block;
+			clear: both;
+			content:"";
+		}
+		.select{
+			z-index: 998;
+			position: absolute;
+			left: 10px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			border:1px solid #CDE2F3;
+			background: #E9F6FF;
+			height: 22px;
+			display: flex;
+		    justify-content: flex-start;
+		    align-items: center;
+		}
+		.del{
+			font-size: 20px;
+			padding-left:10px ;
+			
+		}
+		.btn{
+			display: block;
+			background: none;
+			border: none;
+			color: #D61D1D;
+			position: absolute;
+			right: 10px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.btn:disabled{ 
+		color: #ACACAC;      
+		opacity:1;
+		-webkit-text-fill-color:#666; 
+	    -webkit-opacity:1;   
+        } 
+        #title{
+        	overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+        }
+        .selectdisplay{
+			width: 10rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+        }
+        .mui-navigate-right::after, .mui-push-left::after, .mui-push-right::after{
+        font-size: 1.875rem;	
+        }
+        .mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+        	color: #D61D1D;
+        }
+        .mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+        	color: #D61D1D;
+        }
+        .mui-checkbox input[type=checkbox][disabled]:before, .mui-radio input[type=radio][disabled]:before{
+        	color: #AAAAAA;
+        }
+        .mui-checkbox.mui-left label, .mui-radio.mui-left label{
+        	padding-right: 2rem;
+        }
+         .mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{
+        	top: 50%;
+        	bottom:50%;
+        	margin:auto 0;
+        }
+	</style>
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav news_header">
+		<a id="headerback"  class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+		<h1 id="title" class="mui-title">选择支部</h1>
+	</header>
+	<div class="mui-content">
+		<!--党总支-->
+		<div class="generalBranch" id="zongchoose" style="margin-top: 15px;">
+			  
+		</div>
+		
+		<div class="mui-input-row mui-checkbox mui-left mui-table-view dangzong " style="display: none;">
+			<label class="zongtitle">党总支6</label>
+			<input name="checkbox6" value="Item 1" type="checkbox" class="selectone" >
+			<a class="mui-navigate-right backshow"></a>
+		</div>
+	<!--底部-->
+	<div class="footer mui-bar clearfix">
+		<div class="selectleft" style="display: none">
+			<div class="select" >
+			<div class="selectdisplay"></div>
+			<div class="del"></div>
+			</div>
+		</div>
+		<button type="button" class="btn" disabled="disabled">确认</button>
+	</div>
+<script src="../../../js/jquery.min.js"></script>
+<script src="../../../js/mui.min.js"></script>
+<script src="../../../js/common.js"></script>
+<script src="../../../js/mui.zoom.js"></script>
+<script type="text/javascript">
+    mui.init()
+    mui.plusReady(function() {
+    	//初始化
+		var dangzongitem = $('.dangzong');
+		dangzongitem.css('display', '');
+		dangzongitem.attr('id', '');
+		dangzongitem.remove();
+		
+    	var tree={},bumens={},bumen=[];
+    	osg.ajax("/app/conference/tenant/queryRoleBumenByCode",{actCode:"Orglife"},function(data){
+    		//data = data.data.tree[0];
+			 tree = data.data.tree;
+			 bumens = data.data.bumen;
+			 appbumen("0");
+    	})
+    	
+    	function appbumen(mid){
+    		bumen.push(mid);
+    		var bms = tree[mid];
+			 $("#zongchoose").html("");
+			 for (var i=0;i<bms.length;i++) {
+			 	var item = dangzongitem.clone();
+			 	var disabledid = bms[i].bumenTypeId;
+			 	var itemid = bms[i]._id
+			 	item.find(".zongtitle").html(bms[i].name);
+			 	item.attr("itemid",bms[i]._id);
+			 	item.attr("parentid",bms[i].parentId)
+			 	item[0].addEventListener('tap', function() {
+              })
+			 	if(disabledid=="3"||disabledid=="4"||disabledid=="5"){
+			 		item.find(".selectone").attr("disabled",false)
+			 	}
+			 	else{
+			 		item.find(".selectone").attr("disabled",true)
+			 	}
+			 	if(tree[itemid]){
+			 		item.find(".backshow").css("display","block")
+			 		}
+			 	else{
+			 		item.find(".backshow").css("display","none")	
+			 	}
+			 	$("#zongchoose").append(item);
+			 	//queding
+			 	  var selectleft = $(".selectleft")
+		    var selectdisplay = $(".selectdisplay");
+		    var dangzong = $(".dangzong");
+		    var backshow = $(".backshow")
+		    $(".dangzong input[type=checkbox]").each(function(index,item){
+	            var btn = $(".btn")
+	            var del = $(".del")
+	            var selecttitle =$(dangzong[index]).text();
+		    	item.addEventListener('click',function(){
+		    	var judgechecked = $(this).prop('checked')//判断是否有选中的值将多选变单选
+		    	if(judgechecked) {
+		    		backshow.css("display","none")
+		    	    var nochecked = !judgechecked
+	                $(":checkbox").prop("checked",nochecked);
+	                $(this).prop("checked",judgechecked);
+	                var checkitem =$(this)
+	                btn.attr("disabled",false)
+	                selectleft.css("display","block")
+	                selectdisplay.text(selecttitle)
+	                del.text("X")
+	                //确认部门
+	                btn.on('tap',function(event){
+						//获得事件参数
+						sectionname = selecttitle;
+						var wvB=plus.webview.currentWebview();  //获取当前窗口的WebviewObject对象
+					    var wvA=wvB.opener();		 			//获取当前窗口的创建者
+						//触发详情页面的newsId事件
+						mui.fire(wvA,'toBumen',{
+							sectionname:sectionname
+						});
+						wvB.close();   
+					});
+	                //删除选中
+	                del.click( function () { 
+	                judgechecke=!judgechecked	
+	                 $(":checkbox").prop("checked",judgechecke)
+	                 backshow.css("display","block")
+	                btn.attr("disabled",true)
+	                selectleft.css("display","none")
+	                selectdisplay.text("")
+	                del.text("")
+	                })
+	            }
+	            else{
+	            	backshow.css("display","block")
+	                btn.attr("disabled",true)
+	                selectleft.css("display","none")
+	                selectdisplay.text("")
+	                del.text("")
+				}
+	       });
+	      });
+			 	//queding
+			 }
+		 	$(".backshow").each(function(i,val){ 
+		        val.addEventListener('tap', function() {
+		        var titleitem =$(this).parent().find(".zongtitle").text();
+			    $("#title").text(titleitem);
+			    var backid = $(this).parent().attr("itemid");
+			    var orbackid = $(this).parent().attr("parentid");
+			    appbumen(backid);
+			    }) 
+	    	})
+    	}
+    	
+    	var generalchooses = $(".generalchoose");
+	    var disablechoose = $("#disablechoose");
+	    var zongchooses = $("#zongchoose");
+	    var titlechooses = $(".titlechoose");
+	    var title = $("#title")
+	    var backnum = 0
+	    generalchooses.each(function(i,item){ 
+	     item.addEventListener('tap', function() {
+	         var titleitem =$(titlechooses[i]).text();
+	     	 disablechoose.css('display','none')
+		     title.text(titleitem)	 
+		    zongchooses.css('display','block')
+		     backnum++
+		    }) 
+	    })
+	    //可选党委和党总支和党支部
+	      
+	    var partchoose =$("#partchoose")
+	    var zongtitles =$(".zongtitle")
+	    $(".backshow").each(function(i,item){ 
+		    item.addEventListener('tap', function() {
+		         var titleitem =$(zongtitles[i]).text();
+		     	 zongchooses.css('display','none')
+			     title.text(titleitem)	 
+			     partchoose.css('display','block')
+			     backnum++
+			     console.log(backnum)
+		    }) 
+	    })
+	    //返回按钮事件
+	    mui.back = function(event) {
+	     	if (bumen.length==1) {
+	     		osg.closeMe();
+	     	} else{
+	     		bumen=truncate(bumen);
+	     		var mid=bumen[bumen.length-1];
+	     		bumen=truncate(bumen);
+	     		appbumen(mid);
+	     	}
+	    }
+	   })
+	    //不能选党委
+   
+      
+    function truncate(arr) {
+	    return arr.slice(0,-1);
+	}
+</script>
+</body>
+
+</html>

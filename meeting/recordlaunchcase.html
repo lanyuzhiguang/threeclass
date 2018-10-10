@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/icon/iconfont.css"/>
+		<style type="text/css">
+			body{
+				background-color: #F5F5F9;
+			}
+			.mui-content{
+				background-color: #F5F5F9;
+			}
+			.launch-title{
+				background-color: #FFFFFF;
+				padding: 0.588rem;
+			}
+			.launch-title-big{
+				font-size: 0.8824rem;
+				color: #000000;
+			}
+			.launch-title-small{
+				font-size: 0.70588rem;
+				color: #CCCCCC;
+			}
+			.record-choosepeople{
+				background-color: #FFFFFF;
+				margin-top:0.588rem ;
+			}
+			.choosepeople-item{
+				padding: 0.588rem;
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 2px solid#CCCCCC;
+			}
+			.btns{
+				position: absolute;
+				bottom: 0.588rem;
+				left: 0;
+				right: 0;
+				text-align: center;
+			}
+			.btn{
+				height: 2.353rem;
+				width: 45%;
+				background-color: #169BD5;
+				color: #FFFFFF;
+				border: 1px solid#169BD5;
+				border-radius: 4px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">发起</h1>
+		</header>
+		<div class="mui-content">
+			<div class="launch-title">
+				<div class="launch-title-big">会议出席情况</div>
+				<div class="launch-title-small">
+					应出席人员<span id="">33</span>人，已选择<span id="">33</span>人
+				</div>
+			</div>
+			<div class="record-choosepeople">
+				<div class="choosepeople-item">
+					<div class="choosepeople-item-left">
+						出席人员
+					</div>
+					<div class="choosepeople-item-right">
+						<span>33</span>人
+						 <span class="iconfont icon-go gochoose"></span>
+					</div>
+				</div>
+				<div class="choosepeople-item">
+					<div class="choosepeople-item-left">
+						请假人员
+					</div>
+					<div class="choosepeople-item-right">
+						<span>33</span>人
+						 <span class="iconfont icon-go gochoose"></span>
+					</div>
+				</div>
+				<div class="choosepeople-item">
+					<div class="choosepeople-item-left">
+						缺勤人员
+					</div>
+					<div class="choosepeople-item-right">
+						<span>33</span>人
+						 <span class="iconfont icon-go gochoose"></span>
+					</div>
+				</div>
+			</div>	
+		<div class="btns">
+			<button class="btn">上一步</button>
+			<button class="btn" id="launchlastbtn">下一步</button>
+			
+		</div>
+		</div>
+		<script src="../../../js/jquery.min.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/common.js"></script>
+		<script type="text/javascript">
+			$(".gochoose").each(function(){
+				$(this).text()
+				
+			})
+			var launchlastbtn = document.getElementById("laaunchlastbtn")
+			launchlastbtn.addEventListener('tap',function(){
+				
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,530 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../../css/style.css" rel="stylesheet" />
+		<link href="../../../js/wangEditor/css/wangEditor.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../iconfont/icon/iconfont.css"/>
+		<style media="screen">
+			a.mui-action-back {
+				color: #fff;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 100%;
+			}
+			.mui-input-group:before {
+				height: 0px;
+			}
+			.mui-input-group:after {
+				height: 0px;
+			}
+			.mui-input-group .mui-input-row:after {
+				height: 0px;
+			}
+			.mui-input-group .mui-input-row {
+				height: auto;
+			}
+			.mui-input-row {
+				margin: 0px 1rem;
+			}
+			.login-rect {
+				border: 1px solid #666666;
+				position: relative;
+				float: left;
+				width: 100%;
+				border-radius: 6px;
+			}
+            .meeting-img{
+            	padding: 5px 0;
+            }
+			#imgList {
+				padding: 0;
+				padding-left: 1.2rem!important;
+			}
+			
+			.imageList>div {
+				width: 5.74rem!important;
+				height: 5.74rem!important;
+				overflow: hidden;
+				padding-top: 0!important;
+				margin-left: 0;
+			}
+			.imgItem {
+				padding-left: 0!important;
+				padding-right: 0!important;
+				margin-right: 1.2rem;
+				margin-bottom: 0.588rem;
+				position: relative;
+			}
+			.imageList div>a>img {
+				width: 5.74rem!important;
+				height: 5.74rem;
+				margin-bottom: 0.588rem;
+				margin-top: 0!important;
+			}
+			.imageList div>img {
+				width: 5.74rem!important;
+				height: auto;
+				margin-bottom: 0.588rem;
+				margin-top: 0!important;
+			}
+			.del img {
+				position: absolute;
+				width: 1rem!important;
+				right: 0;
+				top: 0;
+			}
+			.materials-content{
+				font-size: 0.705rem;
+				color: #CCCCCC;
+			}
+			.meeting-materials-two{
+				padding-top: 0.588rem;
+			}
+			
+			.btns{
+				text-align: center;
+			}
+			.btn{
+				width: 90%;
+				background-color: #169BD5;
+				color: #FFFFFF;
+				border: 1px solid#169BD5;
+				border-radius:4px ;
+				height: 2.35rem;
+				margin: 0.882rem 0.588rem 0.294rem 0.588rem;
+			}
+			.wangEditor-container{
+				z-index: 0;
+			}
+			#editor-trigger{
+				padding-top: 0.588rem;
+				width: 100%;            
+				min-height:14.706rem;
+				/*border: 1px solid#CCCCCC;*/
+			}
+			/*提示*/
+			.shade{
+				position:fixed;
+				top: 0;
+				bottom:0;
+				left:0;
+				right:0;
+				background:rgba(77,77,77,0.6);
+			
+			}
+			.popup-btn{
+				width: 90px;
+				height: 35px;
+				text-align: center;
+			}
+			.pop-up{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 17.647rem;
+				height: 12rem;
+				background-color: #FFFFFF;
+				color:#000000;
+				font-size: 0.941rem;
+				padding: 0 0.588rem;
+			}
+			.popup-top{
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid #000000;
+				padding: 0.294rem;
+			}
+			.popup-btn-two{
+				color: #FFFFFF;
+				background-color: #169BD5;
+				border: 1px solid#169BD5;
+			}
+			.popup-btns{
+				padding: 10px 20px;
+				display: flex;
+				justify-content: space-between;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav news_header">
+			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left">返回</a>
+			<h1 id="headertitle" class="mui-title">变更会议信息</h1>
+		</header>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+			    <div class="mui-input-row" style="margin-top: 30px;">
+			    	<div>
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">标题</span>
+			    	</div>
+		    	    <div id="title" class="login-rect">
+				       <input id='titleText' type="text" class="mui-input-clear mui-input"  placeholder="请输入文本" required="required" >
+					</div>
+				</div>
+				<div class="mui-input-row" style="margin-top: 20px;">
+			    	<div>
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">分类</span>
+			    	</div>
+			    	<div id="classify" class="login-rect">
+						<input id="classifyText" readonly="readonly" placeholder="请选择" type="text" value="" required="required">
+					</div>
+				</div>
+				<div class="mui-input-row" style="margin-top: 20px;">
+			    	<div >
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">开始时间</span>
+			    	</div>
+			    	<div id="lanchitem" class="login-rect">
+			    		<input id="startime" data-options='{"type":"datetime"}' readonly="readonly" placeholder="请选择" type="text" value="" required="required">
+					</div>
+				</div>
+				<div class="mui-input-row" style="margin-top: 20px;">
+			    	<div >
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">结束时间</span>
+			    	</div>
+			    	<div id="lanchtime" class="login-rect">
+			    		<input id="endtime" data-options='{"type":"datetime"}' readonly="readonly" placeholder="请选择" type="text" value="" required="required">
+					</div>
+				</div>
+				<div class="mui-input-row" style="margin-top: 20px;">
+			    	<div >
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">地点</span>
+			    	</div>
+			    	<div id="site" class="login-rect">
+						<input id='siteText' type="text" class="mui-input-clear mui-input"  placeholder="请输入文本" required="required" >
+					</div>
+				</div>
+				<div class="mui-input-row" style="margin-top: 20px;">
+			    	<div >
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">组织部门</span>
+			    	</div>
+			    	<div id="section" class="login-rect">
+					    <input id="sectionTextname" readonly="readonly" placeholder="请选择" type="text" value="" required="required">
+			    	</div>
+				</div>
+				<div class="mui-input-row" style="margin-top: 20px;">
+			    	<div>
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">参与人员</span>
+			    	</div>
+			    	<div id="peoplenum" class="login-rect">
+						<input id="joinpeople" readonly="readonly" placeholder="请选择" type="text" value="" required="required">
+				    </div>
+		        </div>
+		        <div class="mui-input-row maincontent" style="margin-top: 20px;">
+			    	<div >
+			    		<i class="title_i">*</i>
+			    		<span class="launch-title">主要内容</span>
+			    	</div>
+			    	<div id="editor-trigger">
+		                <textarea name="" rows="" cols=""  placeholder="请输入....">滚滚滚滚滚改变</textarea>
+		           </div>
+					<div class="meeting-img">图片</div>
+					<div class="imageList" id="imgList">
+						<div class="imgItem">
+							<img id="addPicture" src="../../../images/addPic.png">
+						</div>
+					</div>
+					<div class="meeting-materials-one">
+						<span class="materials-title">会议材料</span>
+						<span class="materials-content">请在PC端添加会议材料</span>
+					</div>
+					<div class="meeting-materials-two">暂无会议材料</div>
+		 </div>
+		</form>
+		<div class="btns">
+			<button class="btn" id="submitbtn">提交</button>
+		</div>
+		</div>
+		    <div class="shade" style="display: none;" id="orshade">
+		      <div class="pop-up">
+		    	<div class="popup-top">
+		    		<div class="tishi">
+		    			提示
+		    		</div>
+		    		<div class="del" id="delshade">
+		    		X	
+		    		</div>
+		    	</div>
+		    	<div class="popup-bottom">
+		    		<div class="popup-content">
+		    			信息变更提交后将更新信息并重新发送会议通知。若已有人员签到，则签到信息无效，需要重新签到。是否确认提交变更
+		    		</div>
+		    		<div class="popup-btns">
+		    		<button class="popup-btn popup-btn-one" id="resultno">取消</button>
+		    		<button class="popup-btn popup-btn-two" id="resultok">确定</button>
+		    		</div>
+		    	</div>
+		    </div>	
+		    </div>
+		<script src="../../../js/jquery.min.js"></script>
+		<script src="../../../js/mui.min.js"></script>
+		<script src="../../../js/mui.picker.min.js"></script>
+		<script src="../../../js/common.js"></script>
+		<script src="../../../js/mui.zoom.js"></script>
+		<script src="../../../js/mui.previewimage.js"></script>
+		<script src="../../../js/mui.dtpicker.js"></script>
+		<script src="../../../js/wangEditor/js/wangEditor.js"></script>
+		<script src="../../../js/mui.pullToRefresh.js"></script>
+		<script src="../../../js/mui.pullToRefresh.material.js"></script>
+	    <script>
+			mui.init();
+			mui.plusReady(function() {
+				//普通示例
+				//分类
+				var classifyPicker =new mui.PopPicker();  //分类选择器
+				classifyPicker.setData([
+					             {value:"支部党员大会",text: '支部党员大会'}
+								,{value:"支部委员会",text: '支部委员会'}
+								,{value:"党小组会",text: '党小组会'}
+								,{value:"党课",text: '党课'}]);
+
+				var classify = document.getElementById('classify');
+				var classifyText=document.getElementById('classifyText');
+				    classify.addEventListener('tap', function(event) {
+					classifyPicker.show(function(items) {
+						classifyText.value = items[0].value;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				}, false);
+				//开始时间
+				var startime =document.getElementById("startime");
+				var year=new Date().getFullYear() ;
+                var month=new Date().getMonth()+1;
+				var day=new Date().getDate();
+				var hours=new Date().getHours();
+				var minuters=new Date().getMinutes();
+				var btns =$("#startime");
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function (rs) {
+								startime.value=rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+							_self.picker = new mui.DtPicker({
+								"beginYear":year,
+								"beginMonth":month,
+								"beginDay":day,
+								"beginHours":hours,
+								"beginMinutes":minuters,
+
+							});
+							_self.picker.show(function(rs) {
+								startime.value=rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+
+					}, false);
+					});
+               //结束时间
+			   var endtime =document.getElementById("endtime");
+				var btns =$("#endtime");
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var startend = startime.value
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function (rs) {
+								endtime.value=rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+						else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+							_self.picker = new mui.DtPicker({
+								  beginDate: new Date(startend),
+							});
+							_self.picker.show(function(rs) {
+								endtime.value=rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+
+					}, false);
+				});
+				//组织部门
+				var section =document.getElementById("section");
+				   section.addEventListener('tap', function() {
+               osg.open("generalBranch.html", "generalBranch.html");
+                   })
+			window.addEventListener('toBumen',function(event){
+				//获得事件参数
+				sectionname = event.detail.sectionname;
+				$("#sectionTextname").val($.trim(sectionname));
+			});
+			//选择人员
+			var peoplenum =document.getElementById("peoplenum");
+				   peoplenum.addEventListener('tap', function() {
+               osg.open("joinpeople.html", "joinpeople.html");
+                   })
+				   window.addEventListener('toBumen',function(event){
+				//获得事件参数
+				joinpeople = event.detail.joinpeople;
+				$("#joinpeople").val($.trim(joinpeople));
+			});
+             });
+		</script>
+		<script type="text/javascript">
+			var editor = new wangEditor('editor-trigger');
+	         editor.create();
+			
+		</script>
+	<script>
+			mui.init();
+		    var nativeWebview, imm, InputMethodManager;
+	        var initNativeObjects = function() {
+			    if (mui.os.android) {
+			        var main = plus.android.runtimeMainActivity();
+			        var Context = plus.android.importClass("android.content.Context");
+			        InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
+			        imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
+			    } 
+			    else {
+			        nativeWebview = plus.webview.currentWebview().nativeInstanceObject();
+			    }
+        };
+			var showSoftInput = function() {
+			    if (mui.os.android) {
+			        imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+			    } 
+			    else {
+			        nativeWebview.plusCallMethod({
+			            "setKeyboardDisplayRequiresUserAction": false
+			        });
+			    }
+			    setTimeout(function() {
+			       //此处可写具体逻辑设置获取焦点的input
+			       $("#content").focus();
+			    }, 300);
+			};
+			mui.plusReady(function() {
+			    initNativeObjects();
+			    showSoftInput();
+			});
+			mui.plusReady(function() {
+				var addPicture = document.getElementById("addPicture");
+				addPicture.addEventListener('tap', function(e) {
+					if(mui.os.plus) {　　
+						var a = [{　　
+							title: "拍照" //这些都是可以点击的选项的内容
+						}, 
+						{
+							title: "从手机相册选择"
+						}];
+						plus.nativeUI.actionSheet({　　
+							cancel: "取消", 
+							buttons: a
+						}, function(event) { /*actionSheet 按钮点击事件*/ 　　
+							var index = event.index;
+							switch(index) {
+								case 1:
+									if($("#imgList").children().length > 1 && $("#imgList").find("div").eq(1).children().is('video')) { //有图片
+									} 
+									else {
+										// 拍照
+										osg.uploadPictureFromCamera(10, function(url) {
+											$("#imgList").append('<div class="imgItem" ><span class="del"><img src="../../../images/cha.png"></span><img src="' + url + '"></div>');
+										});
+									}
+									break;
+								case 2:
+									if($("#imgList").children().length > 1 && $("#imgList").find("div").eq(1).children().is('video')) { //有图片
+									} 
+									else {
+										// 选择图片
+										osg.pickFileUpload(10, function(url) {
+											$("#imgList").append('<div class="imgItem" ><span class="del"><img src="../../../images/cha.png"></span><img src="' + url + '"></div>');
+										});
+									}
+									break;
+							}　　　　　　
+						})
+					}
+				});
+				$("#imgList").on("tap", ".del", function() {
+					$(this).parent().remove();
+				})
+				var pubed = false; 
+					// 文件id
+					var fileIds = new Array();
+					var imageCompleted = false;
+//					var videoCompleted = false;
+					// 要上传的图片
+					var images = new Array();
+					$('#imgList>.imgItem>img').each(function(index, element) {
+						if(index == 0) {
+							return;
+						}
+						var that = $(element);
+						images.push(that.attr("src"));
+					});
+					// 上传图片
+					osg.uploadFiles(images, "true", "square", function(imageIds) {
+						fileIds.push.apply(fileIds, imageIds);
+						imageCompleted = true;
+					});		
+					if(pubed)
+						return;
+						//axios
+				});
+				mui('.mui-scroll-wrapper').scroll({
+					indicators: false
+				});
+		</script>
+	<script type="text/javascript">
+			mui.init()
+			var submitbtn = document.getElementById("submitbtn")
+			var delshade = document.getElementById("delshade")
+			var resultno = document.getElementById("resultno")
+			var resultok = document.getElementById("resultok")
+          	 submitbtn.addEventListener('tap',function(){
+//        	 	console.log("aaa")
+          	 	$("#orshade").css("display","block")
+            });
+			delshade.addEventListener('tap',function(){
+			$("#orshade").css("display","none")	
+			})
+			resultno.addEventListener('tap',function(){
+				$("#orshade").css("display","none")
+			})
+			resultok.addEventListener('tap',function(){
+				$("#orshade").css("display","none")
+				//接口
+			})
+	</script>
+
+	</body>
+
+</html>

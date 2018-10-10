@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../../fonts/icon/iconfont.css"/>
+		<style type="text/css">
+			.iconfont{
+				padding-top: 7.0588rem;
+				color: #1296DB;
+				font-size: 5.8823rem;
+				text-align: center;
+			}
+			.title{
+				padding:4.7059rem 2.35294rem;
+			}
+			.btns{
+				text-align: center;
+			}
+			.btn, .maskbtn{
+				background-color: #169BD5;
+				border: 1px solid#169BD5;
+				color: #FFFFFF;
+				width: 8.23rem;
+				height: 2.353rem; 
+			}
+			.maskbtn{
+				margin-top: 0.588rem;
+			}
+			.mui-backdrop {
+			    position: fixed;
+			    top: 2.8rem;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    z-index: 998;
+			    background-color: rgba(0,0,0,.7);
+			}
+			.remind{
+				background-color: #FFFFFF;
+				width: 17.647rem;
+				height: 10rem;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				text-align: center;
+				padding-top: 2.353rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">会议签到</h1>
+		</header>
+		<div class="mui-content">
+			<div id="">
+				<div class="iconfont icon-ren"></div>
+			    <div class="title">
+			    会议标题会议标题会议标题会议
+			    标题会议标题会议标题会议标题会议标题会议标题	
+			    </div>
+			    <div class="btns">
+			    	 <button class="btn">确认签到</button>
+			    </div>	
+				</div>
+				<div class="mui-backdrop" style="display: none;">
+					<div class="remind">
+						<div class="masktitle">
+							二维码已过期请重新扫描
+						</div>
+						<button class="maskbtn">确定</botton>
+					</div>
+				</div>
+		  
+		   
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

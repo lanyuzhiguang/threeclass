@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+	    <link href="../../../css/style.css" rel="stylesheet" />
+	    <link rel="stylesheet" type="text/css" href="../../../iconfont/icon/iconfont.css"/>
+	    <style type="text/css">
+	    	.joinpeople-content{
+	    		background: #EFEFF4;
+	    	}
+	    	.header-seach{
+	    		padding: 10px;
+	    	}
+	    	input[type=search]{
+	    		background: #fff;
+	    		border: 1px solid #DDDDDD;
+	    	}
+	    	.search-bottom{
+	    		margin-bottom: -15px;
+	    	}
+	    	.check-name-section{
+	    		font-size: 12px;
+	    		color: #DDDDDD;
+	    		padding-bottom: 5px;
+	    		border-bottom: 0.5px solid #DDDDDD;
+	    	}
+	    	.checkpeople{
+	    		margin-top: 10px;
+	    		
+	    	}
+	    	.checkpeople-item{
+	    		padding-top: 6px;
+	    		background: #FFFFFF
+	    	}
+	    	.mui-checkbox{
+	    	}
+		#pagetwo{
+			background-color: #FFFFFF;
+		}
+		.footer{
+			position: absolute;
+			bottom:0;
+			line-height: 1.5;
+			display: flex;
+			align-items: center;
+		}
+		.clearfix:after{
+			display: block;
+			clear: both;
+			content:"";
+		}
+		.selectleft{
+		   display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			
+		}
+		.select{
+			z-index: 998;
+			margin-left: 20px;
+			border:1px solid #CDE2F3;
+			background: #E9F6FF;
+			height: 22px;
+			display: flex;
+		    justify-content: flex-start;
+		    flex-wrap: nowrap;
+		    align-items: center;
+		 
+		}
+		.del{
+			font-size: 20px;
+			padding-left:10px ;
+			
+		}
+		.btn{
+			display: block;
+			background: none;
+			border: none;
+			color: #D61D1D;
+			position: absolute;
+			right: 10px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.btn:disabled{ 
+		color: #ACACAC;   
+		opacity:1;
+		-webkit-text-fill-color:#666; 
+	    -webkit-opacity:1;   
+        } 
+	    </style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+		    <h1 class="mui-title">参加人员</h1>
+		    <div class="mui-pull-right checkentire" style="display: none;">
+		    	全选
+		    </div>
+		</header>
+		<div class="mui-content joinpeople-content">
+			<div class="header-seach">
+            <div class="mui-input-row mui-search search-bottom">
+            <input type="search" class="mui-input-clear" placeholder="搜索">
+            </div>
+		    </div>
+		   <div id="pageone" class="choosepeo">
+		   	<div class="section pagenext"  >
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell">
+			        <a class="mui-navigate-right pagenext" >
+			        	<span class="iconfont icon-fenpeiqunzhong"></span>
+			        	XXX党总支</a>
+			    </li>
+			</ul>
+		</div>
+		<div class="checkpeople" >
+		<div class="checkpeople-item">
+		<div class="mui-checkbox mui-left">
+        <label>
+        <div class="checkname">张三</div>
+        <div class="check-name-section">支部名称支部名称支部名称支部名称支部</div>
+        </label>
+        <input name="checkbox1" value="张三" type="checkbox" class="namexuan">
+        </div>
+		</div>
+		<div class="checkpeople-item">
+		<div class=" mui-checkbox mui-left checkpeople-item">
+        <label>
+        <div class="checkname">李四</div>
+        <div class="check-name-section">支部名称支部名称支部名称支部名称支部</div>
+        </label>
+        <input name="checkbox1" value="李四" type="checkbox" class="namexuan">
+        </div>
+		</div>
+       </div>
+		   </div>
+           <div id="pagetwo" style="display: none;" class="choosepeo">
+          <div class="mui-input-row mui-checkbox mui-left mui-table-view dangchoose ">
+			  <label class="zongtitle">党支部4</label>
+			  <input name="checkbox4" value="Item 1" type="checkbox" class="selectone">
+			  <a class="mui-navigate-right pagenext" ></a>
+			  </div>
+			  <div class="mui-input-row mui-checkbox mui-left mui-table-view dangchoose ">
+			  <label class="zongtitle">党支部5</label>
+			  <input name="checkbox5" value="Item 1" type="checkbox" class="selectone">
+			  <a class="mui-navigate-right pagenext"></a>
+			 </div>
+			  <div class="mui-input-row mui-checkbox mui-left mui-table-view dangchoose ">
+			  <label class="zongtitle">党支部6</label>
+			  <input name="checkbox6" value="Item 1" type="checkbox" class="selectone">
+			  <a class="mui-navigate-right pagenext"></a>
+			 </div>
+           </div>
+		 <div id="pagethree" style="display: none;" class="choosepeo">
+	<div class="checkpeople" >
+		<div class="checkpeople-item">
+		<div class="mui-checkbox mui-left">
+        <label>
+        <div class="checkname">张三</div>
+        <div class="check-name-section">支部名称支部名称支部名称支部名称支部</div>
+        </label>
+        <input name="checkbox1" value="张三1" type="checkbox" class="namexuan2">
+        </div>
+		</div>
+		<div class="checkpeople-item">
+		<div class=" mui-checkbox mui-left checkpeople-item">
+        <label>
+        <div class="checkname">李四</div>
+        <div class="check-name-section">支部名称支部名称支部名称支部名称支部</div>
+        </label>
+        <input name="checkbox1" value="李四1" type="checkbox" class="namexuan2">
+        </div>
+		</div>
+       </div>
+		 </div>
+		</div>
+	<!--底部-->
+	<div class="footer mui-bar clearfix">
+		<div class="selectleft" >
+			<div class="select" style="display: none;">
+			<div class="selectdisplay"></div>
+			<div class="del"></div>
+			</div>	
+		</div>
+		<button type="button" class="btn" disabled="disabled">确认</button>
+	</div>	
+<!--<script src="../js/mui.zoom.js"></script>-->
+<script src="../../../js/jquery.min.js"></script>
+<script src="../../../js/mui.min.js"></script>
+<script src="../../../js/common.js"></script>
+<script src="../../../js/mui.pullToRefresh.js"></script>
+<script src="../../../js/mui.pullToRefresh.material.js"></script>
+<script type="text/javascript">
+    mui.init()
+    //pageone选择人员
+     $(() => {
+        let selectArr = []
+        $("[name='checkbox1']").change(function() {
+        	$('.selectleft').html("")
+            let checkboxs = Array.from(document.querySelectorAll('[name=checkbox1]'))
+            selectArr = checkboxs.filter(item => item.checked)
+            selectArr = selectArr.map(item => item.value)
+           $(selectArr).each(function(index,ite){
+//         	$(".select").css("display","block")
+             $(".btn").attr("disabled",false)
+             var str = `<div class="selectdisplay">${ite}</div>`
+             var strr = `<div class="del">x</div>`
+             let sss = `<div class="select" >${str+strr}</div>`
+            let template = `<div class="select" >${str}</div>`
+            $('.selectleft').append(sss) 
+           
+           })  
+           	   //确定
+             var btn = $(".btn")
+                  btn.on('tap',function(event){
+					//获得事件参数
+					joinpeople =selectArr[0]+selectArr.length
+					console.log(joinpeople)
+					var wvB=plus.webview.currentWebview();  //获取当前窗口的WebviewObject对象
+				    var wvA=wvB.opener();		 			//获取当前窗口的创建者
+					//触发详情页面的newsId事件
+					mui.fire(wvA,'toBumen',{
+						joinpeople:joinpeople
+					});
+					wvB.close();   
+				});
+                //  删除选中
+               
+                var namexuan = $(".namexuan")
+                var namexuan2 = $(".namexuan2")
+                var pagecheck=  $(".checkpeople input[type=checkbox]")
+                var del = $(".del")
+                 $(".del").each(function(index,delone){	
+                delone.addEventListener("click",function() {
+               	var judgechecked = $(namexuan[index]).is(':checked')
+               	var judgechecked = $(namexuan2[index]).is(':checked')
+                judgechecke=!judgechecked	
+                console.log(judgechecke)
+                 $(namexuan[index]).prop("checked",judgechecke)
+                  $(namexuan2[index]).prop("checked",judgechecke)
+                var select = $(".select")
+                $(select[index]).remove();
+                 var del = $(".del")
+                console.log(select.length-1)
+                 if(select.length-1){	
+                }
+            else{
+            	  var select = $(".select")
+                  $(".btn").attr("disabled",true)
+                 $(select).remove();
+                } 
+                })
+            
+            })
+      	 })
+            //  pagetwo
+     var pagenext = $(".pagenext")
+     var pageone = $("#pageone")
+     var pagetwo = $("#pagetwo")
+     pagenext[0].addEventListener('tap', function() {
+     	pageone.css("display","none")
+     	pagetwo.css("display","block")
+     	$(".checkentire").css("display","block")
+     	pagethree.css("display","none")
+     	 console.log("aaa")
+     })
+     //全选和取消全选
+     var allor = $("#pagetwo input[type='checkbox']:checked").length ==$("#pagetwo input[type='checkbox']").length
+     $("#pagetwo input[type=checkbox").each(function(i,orone){
+     orone.addEventListener('click', function() {
+     	console.log(i)
+     	var allor = $("#pagetwo input[type='checkbox']:checked").length ==$("#pagetwo input[type='checkbox']").length
+     	console.log(allor)
+	     if(allor){
+	     $(".checkentire").text("取消全选")	
+	     }
+	     else{
+	     	$(".checkentire").text("全选")
+	     }
+     })
+    
+     })
+     console.log(allor)
+      $(".checkentire")[0].addEventListener('tap', function() {
+      	allor = !allor
+     if(allor){
+     	$("#pagetwo input[type=checkbox").prop("checked",false);
+     	$(".checkentire").text("全选")
+     }
+     else{
+     	$("#pagetwo input[type=checkbox").prop("checked",true);
+     	$(".checkentire").text("取消全选")
+     	console.log(allor,"aaa")
+     }
+    })
+   })
+  //pagethree
+     var pagenext = $(".pagenext")
+     var pagetwo = $("#pagetwo")
+      var pagethree = $("#pagethree")
+      var dangchoose = $(".dangchoose")
+      
+      pagenext.each(function(i,pagenextitem){
+      	pagenextitem.addEventListener('tap', function() {
+     	pagetwo.css("display","none")
+     	pagethree.css("display","block")
+     	 console.log("aaa")
+     })
+    })
+     
+      
+  
+  
+</script>
+</body> 
+</html>
